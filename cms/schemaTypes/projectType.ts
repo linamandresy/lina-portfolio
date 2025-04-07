@@ -38,6 +38,12 @@ export const projectType = defineType({
             name:'actor',
             type:'reference',
             to:{type:'profile'}
+        }),
+        defineField({
+            name:'technologies',
+            title:'Technologies',
+            type:'array',
+            of:[{type:'reference',to:[{type:'technology'}]}]
         })
 
     ]
