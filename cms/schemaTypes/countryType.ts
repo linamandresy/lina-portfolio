@@ -1,9 +1,11 @@
+import { EarthGlobeIcon } from "@sanity/icons";
 import { defineType } from "sanity";
 
 export const countryType = defineType({
     name:'country',
     type:'document',
     title:'Country',
+    icon:EarthGlobeIcon,
     fields:[{
         name:'countryName',
         type:'string',

@@ -1,9 +1,11 @@
+import { PinFilledIcon } from "@sanity/icons";
 import { defineType } from "sanity";
 
 export const cityType = defineType({
     name:'city',
     title:'City',
     type:'document',
+    icon:PinFilledIcon,
     fields:[{
         name:'cityName',
         type:'string',
