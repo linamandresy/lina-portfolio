@@ -1,0 +1,12 @@
+@tailwind utilities;
+
+.banner {
+    @apply h-[75vh] bg-no-repeat bg-left bg-contain relative bg-blend-multiply bg-black bg-opacity-80 flex justify-end;
+}
+
+.overlay{
+    @apply flex justify-end items-center;
+}
+.text{
+    @apply text-white text-4xl font-bold text-center  align-middle p-20 animate-pulse;
+}
