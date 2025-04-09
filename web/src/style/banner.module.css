@@ -1,12 +1,47 @@
 @tailwind utilities;
 
 .banner {
-    @apply h-[75vh] bg-no-repeat bg-left bg-contain relative bg-blend-multiply bg-black bg-opacity-80 flex justify-end;
+    @apply h-[50vh] relative flex justify-around bg-opacity-80 flex-row justify-center;
+    background-color: black;
 }
 
-.overlay{
-    @apply flex justify-end items-center;
+.image {
+    @apply h-3/4 object-cover;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textUp 0.6s ease-out forwards;
 }
-.text{
-    @apply text-white text-4xl font-bold text-center  align-middle p-20 animate-pulse;
+
+.text {
+    @apply text-3xl text-white items-center flex flex-col p-10 m-10;
+    background-color: rgb(2, 184, 93);
+    height: fit-content;
+    width: fit-content;
+    border-radius: 2px 100px 100px 100px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textUp 0.6s ease-out forwards;
+    animation-delay: .3s
+}
+
+.text .title {
+    @apply flex;
+
+}
+
+.text .title h1 {
+    @apply ml-4;
+    font-weight: bolder;
+}
+
+.text span {
+    font-weight: lighter;
+}
+
+@keyframes textUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
