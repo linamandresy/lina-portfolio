@@ -8,13 +8,21 @@ export default function Banner(props: {
   return (
     <div className={style.banner} >
       <img src={props.imageUrl} alt={props.title} className={style.image} />
-      <div className={style.text}>
-        <div className={style.title}>
-          <span>Hi, I'm </span>
-          <h1> {props.title}</h1>
+      <div className={style.overlay}>
+        <div className={style.text}>
+          <div className={style.title}>
+            <span>Hi, I'm </span>
+            <h1> {props.title}</h1>
+          </div>
+          <span>{props.subtitle}</span>
         </div>
-        <span>{props.subtitle}</span>
+        <button className={style.seeMore}>
+          See More
+          <span className={style.arrow}></span>
+        </button>
       </div>
+
+
     </div>
   );
 

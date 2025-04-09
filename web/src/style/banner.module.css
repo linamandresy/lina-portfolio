@@ -1,12 +1,23 @@
 @tailwind utilities;
 
 .banner {
-    @apply h-[50vh] relative flex justify-around bg-opacity-80 flex-row justify-center;
+    @apply  relative flex justify-around bg-opacity-80 flex-row justify-center p-2;
     background-color: black;
+    flex-wrap: wrap;
+    
+}
+
+.overlay {
+    @apply flex justify-center items-center flex-col;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textUp 0.6s ease-out forwards;
+    animation-delay: .3s    
 }
 
 .image {
-    @apply h-3/4 object-cover;
+    @apply  object-cover;
+    height: 60vh;
     border-radius: 50%;
     opacity: 0;
     transform: translateY(20px);
@@ -19,10 +30,7 @@
     height: fit-content;
     width: fit-content;
     border-radius: 2px 100px 100px 100px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: textUp 0.6s ease-out forwards;
-    animation-delay: .3s
+    
 }
 
 .text .title {
@@ -45,3 +53,33 @@
         transform: translateY(0);
     }
 }
+
+.seeMore {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    animation: bounce 1.2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+  
