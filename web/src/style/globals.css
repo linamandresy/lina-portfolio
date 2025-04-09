@@ -1,2 +1,12 @@
 @tailwind base;
 
+
+:root{
+    --primary-dark:rgb(0, 0, 0);
+    --primary-light:rgb(255, 255, 255);
+    --dark-text:rgb(0, 0, 0);
+    --light-text:rgb(255, 255, 255);
+    --primary-color:rgb(2, 184, 93);
+
+
+}

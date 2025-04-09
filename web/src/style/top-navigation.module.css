@@ -1,8 +1,8 @@
 @tailwind utilities;
 
 .topNavigation{
-    @apply  flex justify-center items-center bg-black shadow-md p-4  w-screen z-10;
+    @apply  flex justify-center items-center bg-[var(--primary-dark)] shadow-md p-4  w-screen z-10;
 }
 .link{
-    @apply m-2 text-zinc-50;
+    @apply m-2 text-[var(--light-text)]   hover:text-[var(--primary-color)] transition-all duration-300;
 }

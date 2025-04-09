@@ -21,8 +21,6 @@ export default function Banner(props: {
           <span className={style.arrow}></span>
         </button>
       </div>
-
-
     </div>
   );
 
