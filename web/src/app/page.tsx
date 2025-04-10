@@ -3,7 +3,7 @@ import Banner from "@/components/Banner";
 import RolesSection from "@/components/RolesSection";
 import TopNavigation from "@/components/TopNavigation";
 import WorkSection from "@/components/WorkSection";
-import styles from "@/style/page.module.css";
+// import styles from "@/style/page.module.css";
 
 export default function Home() {
   return (
