@@ -11,7 +11,7 @@ export default function Banner(props: {
       <div className={style.overlay}>
         <div className={style.text}>
           <div className={style.title}>
-            <span>Hi, I'm </span>
+            <span>Hi, I`m </span>
             <h1> {props.title}</h1>
           </div>
           <span>{props.subtitle}</span>
