@@ -1,11 +1,12 @@
 import styles from "@/style/roles-section.module.css";
 import RoleCard from "./RoleCard";
+import SectionTitle from "./SectionTitle";
 
 export default function RolesSection() {
     return (
         <>
             <section className={styles.section}>
-                <h3 className={styles.title}>Roles</h3>
+                <SectionTitle title="Roles" />
 
                 <div className={styles.roles}>
                     <RoleCard role="Software Engineer" description="Develops and maintains software applications." imageUrl="/lina-illustration.png" />
