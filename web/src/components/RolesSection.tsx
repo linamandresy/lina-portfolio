@@ -7,10 +7,10 @@ export default function RolesSection() {
             <section className={styles.section}>
                 <h3 className={styles.title}>Roles</h3>
 
-                <div>
-                    <RoleCard role="Software Engineer" description="Develops and maintains software applications." imageUrl="https://example.com/software-engineer.jpg" />
-                    <RoleCard role="Data Scientist" description="Analyzes and interprets complex data." imageUrl="https://example.com/data-scientist.jpg" />
-                    <RoleCard role="Product Manager" description="Oversees product development and strategy." imageUrl="https://example.com/product-manager.jpg" />
+                <div className={styles.roles}>
+                    <RoleCard role="Software Engineer" description="Develops and maintains software applications." imageUrl="/lina-illustration.png" />
+                    <RoleCard role="Data Scientist" description="Analyzes and interprets complex data." imageUrl="/lina-illustration.png" />
+                    <RoleCard role="Product Manager" description="Oversees product development and strategy." imageUrl="/lina-illustration.png" />
                 </div>
 
             </section>
