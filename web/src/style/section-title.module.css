@@ -1,11 +1,11 @@
 @tailwind utilities;
 
 .title{
-    @apply text-[var(--primary-dark)] text-5xl font-bold mb-20 pb-10;
+    @apply text-[var(--primary-dark)] text-5xl font-bold mb-20 pb-10 flex-nowrap;
     display: inline-block ;
     flex-direction: column;
     position: relative;
-    ;
+    
 }
 
 .title::after {
