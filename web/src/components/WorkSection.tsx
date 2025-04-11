@@ -1,50 +1,55 @@
+"use client";
 import styles from '@/style/work-section.module.css';
 import SectionTitle from "./SectionTitle";
+import { useState } from "react";
+
+const items = [
+    {
+        id: 1,
+        title: "Mountain",
+        image: "/lina-illustration.png",
+        content: "Beautiful mountain view",
+    },
+    {
+        id: 2,
+        title: "Beach",
+        image: "/lina-illustration.png",
+        content: "Relaxing beach vibes",
+    },
+    {
+        id: 3,
+        title: "Forest",
+        image: "/lina-illustration.png",
+        content: "Green forest scenery",
+    },
+];
 
 export default function WorkSection() {
+    const [active, setActive] = useState(1);
     return (
         <section className={styles.section}>
-            
-                <SectionTitle title="Work Experience" />
-                {/* <div className="flex flex-col space-y-4">
-                    <div className="bg-white shadow-md rounded-lg p-6">
-                        <h3 className="text-xl font-semibold">Software Engineer</h3>
-                        <p className="text-gray-600">Company Name - Location</p>
-                        <p className="text-gray-600">Dates of Employment</p>
-                        <ul className="list-disc list-inside mt-2">
-                            <li>Developed and maintained web applications using React and Node.js.</li>
-                            <li>Collaborated with cross-functional teams to define, design, and ship new features.</li>
-                            <li>Participated in code reviews and contributed to team knowledge sharing.</li>
-                            <li>Implemented unit tests and automated testing frameworks to ensure code quality.</li>
-                            <li>Worked with RESTful APIs and third-party libraries to enhance application functionality.</li>
-                        </ul>
+
+            <SectionTitle title="Work Experience" />
+
+            <div className="flex flex-col w-full h-[600px] overflow-hidden">
+                {items.map((item) => (
+                    <div
+                        key={item.id}
+                        onClick={() => setActive(item.id)}
+                        className={`relative cursor-pointer flex-1 transition-all duration-500 ${active === item.id ? "flex-[3]" : "flex-[1]"
+                            }`}
+                        style={{
+                            backgroundImage: `url(${item.image})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
+                    >
+                        <div className="bg-black/50 h-full w-full flex items-center justify-center">
+                            <h2 className="text-white text-3xl">{item.title}</h2>
+                        </div>
                     </div>
-                    <div className="bg-white shadow-md rounded-lg p-6">     
-                        <h3 className="text-xl font-semibold">Frontend Developer</h3>
-                        <p className="text-gray-600">Company Name - Location</p>
-                        <p className="text-gray-600">Dates of Employment</p>
-                        <ul className="list-disc list-inside mt-2">
-                            <li>Designed and implemented user interfaces using HTML, CSS, and JavaScript.</li>
-                            <li>Optimized web applications for maximum speed and scalability.</li>
-                            <li>Worked closely with designers to ensure a seamless user experience.</li>
-                            <li>Debugged and resolved issues in existing applications.</li>
-                            <li>Participated in Agile development processes and sprint planning.</li>
-                        </ul>
-                    </div>
-                    <div className="bg-white shadow-md rounded-lg p-6">
-                        <h3 className="text-xl font-semibold">Internship Position</h3>
-                        <p className="text-gray-600">Company Name - Location</p>
-                        <p className="text-gray-600">Dates of Employment</p>
-                        <ul className="list-disc list-inside mt-2">     
-                            <li>Assisted in the development of web applications and features.</li>
-                            <li>Conducted testing and debugging of applications.</li>
-                            <li>Collaborated with senior developers to learn best practices.</li>
-                            <li>Participated in team meetings and contributed ideas for improvements.</li>
-                            <li>Documented code and created user manuals for applications.</li>
-                        </ul>
-                    </div>
-                </div> */}
-            
+                ))}
+            </div>
         </section>
     );
 }
