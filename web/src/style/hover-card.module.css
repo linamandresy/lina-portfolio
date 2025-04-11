@@ -1,0 +1,24 @@
+@tailwind utilities;
+
+.hoverCard{
+    @apply max-w-60 m-1 relative;
+
+}
+
+.title{
+    opacity: 0;
+    position:absolute;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    top: 0;
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 100%;
+    color: var(--light-text);
+}
+
+.hoverCard:hover .title{
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
