@@ -6,12 +6,12 @@ import TopNavigation from "@/components/TopNavigation";
 import WorkSection from "@/components/WorkSection";
 
 const data :any=[{
-  imageUrl:'https://media.licdn.com/dms/image/v2/D5616AQElF5C485NMPA/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1738270322548?e=1749686400&v=beta&t=o1nGhttUEXfQGZglbfsIeH30sxPg40P3t5cBZo-ih2k',
+  imageUrl:'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80',
   title:'Mohesh',
   description:'Lina a ete un tres bon stagiaire, il a su s`adapter a l equipe et a la culture de l entreprise. Elle a su faire preuve d autonomie et de curiosite tout au long de son stage. Elle a su s adapter aux besoins de l entreprise et a su se former sur les technologies utilisees. Elle a su travailler en equipe et a su s integrer dans l equipe. Elle a su faire preuve d autonomie et de curiosite tout au long de son stage. Elle a su s adapter aux besoins de l entreprise et a su se former sur les technologies utilisees. Elle a su travailler en equipe et a su s integrer dans l equipe.'
 },
 {
-  imageUrl:'https://media.licdn.com/dms/image/v2/D5616AQElF5C485NMPA/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1738270322548?e=1749686400&v=beta&t=o1nGhttUEXfQGZglbfsIeH30sxPg40P3t5cBZo-ih2k',
+  imageUrl:'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80',
   title:'Naina',
   description:'Lina a ete un tres bon stagiaire, il a su s`adapter a l equipe et a la culture de l entreprise. Elle a su faire preuve d autonomie et de curiosite tout au long de son stage. Elle a su s adapter aux besoins de l entreprise et a su se former sur les technologies utilisees. Elle a su travailler en equipe et a su s integrer dans l equipe. Elle a su faire preuve d autonomie et de curiosite tout au long de son stage. Elle a su s adapter aux besoins de l entreprise et a su se former sur les technologies utilisees. Elle a su travailler en equipe et a su s integrer dans l equipe.'
 }]
