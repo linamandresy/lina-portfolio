@@ -1,5 +1,6 @@
 
 import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 import RolesSection from "@/components/RolesSection";
 import Testimonials from "@/components/Testimonials";
 import TopNavigation from "@/components/TopNavigation";
@@ -28,6 +29,7 @@ export default function Home() {
         <Testimonials data={data}/>
         <WorkSection/>
       </main>
+      <Footer/>
     </div>
   );
 }
