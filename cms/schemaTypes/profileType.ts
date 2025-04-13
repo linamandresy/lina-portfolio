@@ -6,7 +6,7 @@ export const profileType = defineType({
     name: 'profile',
     title: 'Profile',
     type: 'document',
-    icon:UserIcon,
+    icon: UserIcon,
     groups: [
         { name: 'basicInfo', title: 'Basic Info' },
         { name: 'contactInfo', title: 'Contact Info' },
@@ -33,6 +33,12 @@ export const profileType = defineType({
             type: 'string',
             group: 'basicInfo',
             fieldset: 'userName'
+        }),
+        defineField({
+            name: 'preferedName',
+            type: 'string',
+            fieldset: 'userName',
+            group: 'basicInfo'
         }),
         defineField({
             name: 'slug',
@@ -70,81 +76,81 @@ export const profileType = defineType({
                 .info("Better with profile picture")
         }),
         defineField({
-            name:'gender',
-            type:'reference',
-            to:[{type:'gender'}],
-            group:'basicInfo',
-            validation:(rule)=>rule
+            name: 'gender',
+            type: 'reference',
+            to: [{ type: 'gender' }],
+            group: 'basicInfo',
+            validation: (rule) => rule
                 .required()
         }),
         defineField({
-            name:'country',
-            validation:(rule) => rule.required(),
-            type:'reference',
-            to:{type:'country'},
-            group:'contactInfo'
+            name: 'country',
+            validation: (rule) => rule.required(),
+            type: 'reference',
+            to: { type: 'country' },
+            group: 'contactInfo'
         }),
         defineField({
-            name:'city',
-            type:'reference',
-            group:'contactInfo',
-            to:{type:'city'},
-            options:{
-                filter:({document})=>{
-                    if(!document.country){
+            name: 'city',
+            type: 'reference',
+            group: 'contactInfo',
+            to: { type: 'city' },
+            options: {
+                filter: ({ document }) => {
+                    if (!document.country) {
                         return {
-                            filter:'_type=="city"'
+                            filter: '_type=="city"'
                         }
                     }
                     return {
-                        filter:'_type=="city" && country._ref == $countryRef',
-                        params:{countryRef:document.country._ref},
+                        filter: '_type=="city" && country._ref == $countryRef',
+                        params: { countryRef: document.country._ref },
                     };
                 }
             }
         }),
         defineField({
-            name:'phoneNumber',
-            type:'string',
-            group:'contactInfo',
-            validation:(rule)=>rule.required()
+            name: 'phoneNumber',
+            type: 'string',
+            group: 'contactInfo',
+            validation: (rule) => rule.required()
         }),
         defineField({
-            name:'address',
-            type:'string',
-            group:'contactInfo'
+            name: 'address',
+            type: 'string',
+            group: 'contactInfo'
         }),
         defineField({
-            name:'postalCode',
-            type:'string',
-            validation:(rule)=>rule.required(),
-            group:'contactInfo'
+            name: 'postalCode',
+            type: 'string',
+            validation: (rule) => rule.required(),
+            group: 'contactInfo'
         }),
         defineField({
-            name:'linkedin',
-            type:'string',
-            title:'LinkedIn',
-            group:'contactInfo'
+            name: 'linkedin',
+            type: 'string',
+            title: 'LinkedIn',
+            group: 'contactInfo'
         })
     ],
-    preview:{
-        select:{
-            firstName:'firstName',
-            lastName:'lastName',
-            city:'city.cityName',
-            cityRegion:'city.region',
-            country:'country.countryName',
-            image:'profilePicture'
+    preview: {
+        select: {
+            firstName: 'firstName',
+            lastName: 'lastName',
+            city: 'city.cityName',
+            cityRegion: 'city.region',
+            country: 'country.countryName',
+            image: 'profilePicture'
         },
-        prepare({firstName,lastName,city,cityRegion,country,image}){
+        prepare({ firstName, lastName, city, cityRegion, country, image }) {
             let fullname = firstName;
-            if(lastName){
+            if (lastName) {
                 fullname = `${fullname} ${lastName}`
             }
             return {
-                title:`${fullname}`,
-                subtitle:`${city}, ${cityRegion}, ${country}`,
-                media:image || UserIcon
+                title: `${fullname}`,
+                subtitle: `${city}, ${cityRegion}, ${country}`,
+                media: image || UserIcon
             }
         }
     }

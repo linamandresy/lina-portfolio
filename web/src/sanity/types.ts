@@ -221,6 +221,7 @@ export type Profile = {
   _rev: string;
   firstName?: string;
   lastName?: string;
+  preferedName?: string;
   slug?: Slug;
   dob?: string;
   profilePicture?: {
