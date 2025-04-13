@@ -1,11 +1,11 @@
 'use client';
-import { Button, Carousel, Typography } from "@material-tailwind/react";
+import { Carousel, Typography } from "@material-tailwind/react";
 
-export default function Testimonials({ data }: { data: [{ imageUrl: string, title: string, description: string }] }) {
+export default function Testimonials({ data }: { data: { imageUrl: string, title: string, description: string }[] }) {
   return (
-    <Carousel className="rounded-xl">
+    <Carousel className="rounded-xl" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} >
       {data.map((item, index) => (
-        <div className="relative h-full w-full">
+        <div className="relative h-full w-full" key={index}>
           <img
             src={item.imageUrl}
             alt="image 1"
@@ -17,6 +17,7 @@ export default function Testimonials({ data }: { data: [{ imageUrl: string, titl
                 variant="h1"
                 color="white"
                 className="mb-4 text-3xl md:text-4xl lg:text-5xl "
+                placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}
               >
                 {item.title}
               </Typography>
@@ -24,6 +25,7 @@ export default function Testimonials({ data }: { data: [{ imageUrl: string, titl
                 variant="lead"
                 color="white"
                 className="mb-12 opacity-80"
+                placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}
               >
                 {item.description}
               </Typography>
