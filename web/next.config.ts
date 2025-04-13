@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
     domains: [
       "scontent-yyz1-1.xx.fbcdn.net"
     ],
+    remotePatterns: [
+      { protocol: "https", hostname: "cdn.sanity.io" },
+      { protocol: "https", hostname: "placehold.co" },
+    ],
   }
 };
 
