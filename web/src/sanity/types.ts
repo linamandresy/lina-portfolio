@@ -361,3 +361,73 @@ export type Slug = {
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Technology | TechCategory | Project | Company | Profile | City | Country | Gender | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ../web/src/app/page.tsx
+// Variable: QUERY_PROFILE
+// Query: *[  _type == 'profile'  ]{    ...,    city->,    country->  }
+export type QUERY_PROFILEResult = Array<{
+  _id: string;
+  _type: "profile";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  firstName?: string;
+  lastName?: string;
+  preferedName?: string;
+  slug?: Slug;
+  dob?: string;
+  profilePicture?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  gender?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "gender";
+  };
+  country: {
+    _id: string;
+    _type: "country";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    countryName?: string;
+    countryCode?: string;
+    areaCode?: string;
+  } | null;
+  city: {
+    _id: string;
+    _type: "city";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    cityName?: string;
+    region?: string;
+    country?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "country";
+    };
+  } | null;
+  phoneNumber?: string;
+  address?: string;
+  postalCode?: string;
+  linkedin?: string;
+}>;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    "*[\n  _type == 'profile'\n  ]{\n    ...,\n    city->,\n    country->\n  }": QUERY_PROFILEResult;
+  }
+}

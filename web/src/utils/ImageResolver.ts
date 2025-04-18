@@ -12,7 +12,7 @@ const { projectId, dataset } = client.config();
  * @param {SanityImageSource} source - The `source` parameter in the `urlFor` function is of type
  * `SanityImageSource`. It is used to specify the image source for which the URL needs to be generated.
  */
-export const urlFor = (source: SanityImageSource) =>{
+export const urlFor = (source: SanityImageSource| undefined) =>{
     if(!source) return null;
     return projectId && dataset
     ? imageUrlBuilder({ projectId, dataset }).image(source)
