@@ -1,19 +1,28 @@
 import styles from '@/style/work-section.module.css';
 import SectionTitle from "./SectionTitle";
 import HoverCard from './HoverCard';
+import { defineQuery } from 'next-sanity';
+import { client } from '@/sanity/client';
+import { urlFor } from '@/utils/ImageResolver';
+
+const WORK_QUERY =  defineQuery( `*[_type == "project"]{...}`);
 
 export default async function WorkSection() {
+    const works = await client.fetch(WORK_QUERY);
+    // console.log(works);
     return (
         <section className={styles.section}>
             
-                <SectionTitle title="Collaborators" />
+                <SectionTitle title="Works" />
                 
                 <div className={styles.workExperience}>
-                    <HoverCard image="/lina-illustration.png" title='WaterWipes : A mafatifaty website'/>
-                    <HoverCard image="/lina-illustration.png" title='WaterWipes : A mafatifaty website'/>
-                    <HoverCard image="/lina-illustration.png" title='WaterWipes : A mafatifaty website'/>
-                    <HoverCard image="/lina-illustration.png" title='WaterWipes : A mafatifaty website'/>
-                    <HoverCard image="/lina-illustration.png" title='WaterWipes : A mafatifaty website'/>
+                    {works.map((work:any) => {
+                        const img:string = urlFor(work?.image)?.url() || '';
+                        return (
+                            <HoverCard image={img} title={work.projectTitle}/>
+                        );
+                        
+                    })}
 
                 </div>
         </section>
