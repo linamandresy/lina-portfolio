@@ -10,3 +10,7 @@
     --primary-alt-color:rgb(6, 246, 126);
 
 }
+
+p{
+    color: var(--primary-light);
+}
