@@ -159,6 +159,40 @@ export type Project = {
   }>;
 };
 
+export type Testimonials = {
+  _id: string;
+  _type: "testimonials";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  author?: string;
+  company?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "company";
+  };
+  role?: string;
+  feedback?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Company = {
   _id: string;
   _type: "company";
@@ -359,9 +393,9 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Technology | TechCategory | Project | Company | Profile | City | Country | Gender | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Technology | TechCategory | Project | Testimonials | Company | Profile | City | Country | Gender | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ../web/src/app/page.tsx
+// Source: ../web/src/components/Banner.tsx
 // Variable: QUERY_PROFILE
 // Query: *[  _type == 'profile'  ]{    ...,    city->,    country->  }
 export type QUERY_PROFILEResult = Array<{
@@ -424,10 +458,68 @@ export type QUERY_PROFILEResult = Array<{
   linkedin?: string;
 }>;
 
+// Source: ../web/src/components/CompanySection.tsx
+// Variable: QUERY_COMPANY
+// Query: *[    _type == 'company'    ]{...}
+export type QUERY_COMPANYResult = Array<{
+  _id: string;
+  _type: "company";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  companyName?: string;
+  slug?: Slug;
+  location?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "country";
+  };
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  website?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  projects?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "project";
+  }>;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[\n  _type == 'profile'\n  ]{\n    ...,\n    city->,\n    country->\n  }": QUERY_PROFILEResult;
+    "*[\n    _type == 'company'\n    ]{...}": QUERY_COMPANYResult;
   }
 }

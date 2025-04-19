@@ -6,5 +6,6 @@ import { projectType } from "./projectType";
 import { companyType } from "./companyType";
 import { techCategoryType } from "./techCategoryType";
 import { technologyType } from "./technologyType";
+import { testimonialsType } from "./testimonialsType";
 
-export const schemaTypes = [profileType, companyType, projectType, cityType, countryType, genderType, technologyType, techCategoryType]
+export const schemaTypes = [profileType, companyType, testimonialsType,projectType, cityType, countryType, genderType, technologyType, techCategoryType]
