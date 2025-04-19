@@ -1,5 +1,6 @@
 'use client';
 import { client } from "@/sanity/client";
+import type { Testimonials } from "@/sanity/types";
 import { Carousel, Typography } from "@material-tailwind/react";
 import { defineQuery, PortableText } from "next-sanity";
 
@@ -9,10 +10,10 @@ const QUERY_TESTIMONIALS = defineQuery(`*[ _type == 'testimonials' ]{...}`);
 
 
 export default async function Testimonials() {
-  const testimonials = await client.fetch(QUERY_TESTIMONIALS);
+  const testimonial = await client.fetch(QUERY_TESTIMONIALS);
   return (
     <Carousel className="rounded-xl" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} >
-      {testimonials.map((item:any, index:any) => (
+      {testimonial.map((item:Testimonials, index:number) => (
         <div className="relative h-full w-full" key={index}>
           <img
             src='https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80'
@@ -35,7 +36,7 @@ export default async function Testimonials() {
                 className="mb-12 opacity-80"
                 placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}
               >
-                <PortableText value={item.feedback}  />
+                <PortableText value={item.feedback ?? []}  />
               </Typography>
 
             </div>

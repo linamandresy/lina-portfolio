@@ -4,6 +4,7 @@ import HoverCard from './HoverCard';
 import { defineQuery } from 'next-sanity';
 import { client } from '@/sanity/client';
 import { urlFor } from '@/utils/ImageResolver';
+import { Project } from '@/sanity/types';
 
 const WORK_QUERY =  defineQuery( `*[_type == "project"]{...}`);
 
@@ -16,10 +17,10 @@ export default async function WorkSection() {
                 <SectionTitle title="Works" />
                 
                 <div className={styles.workExperience}>
-                    {works.map((work:any) => {
+                    {works.map((work:Project,index:number) => {
                         const img:string = urlFor(work?.image)?.url() || '';
                         return (
-                            <HoverCard image={img} title={work.projectTitle}/>
+                            <HoverCard key={index} image={img} title={work.projectTitle||''}/>
                         );
                         
                     })}

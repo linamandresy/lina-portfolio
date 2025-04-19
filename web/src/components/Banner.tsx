@@ -26,7 +26,7 @@ export default async function Banner() {
               <span>Hi, I`m </span>
                {profile?.preferedName || `${profile?.firstName} ${profile?.lastName}`}</h1>
           </div>
-          <span>I am located at {profile?.city?.cityName}</span>
+          <span>I am located in {profile?.city?.cityName}</span>
         </div>
         <button className={style.seeMore}>
           See More
