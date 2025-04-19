@@ -2,7 +2,7 @@ import styles from '@/style/work-section.module.css';
 import SectionTitle from "./SectionTitle";
 import HoverCard from './HoverCard';
 
-export default function WorkSection() {
+export default async function WorkSection() {
     return (
         <section className={styles.section}>
             
