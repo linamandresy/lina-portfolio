@@ -28,7 +28,7 @@ export default async function Testimonials() {
                 className="mb-4 text-3xl md:text-4xl lg:text-5xl "
                 placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}
               >
-                {item.author}
+                {item.author} , {item.role}
               </Typography>
               <Typography
                 variant="lead"
