@@ -23,6 +23,12 @@ export const projectType = defineType({
             validation:(rule)=>rule.required()
         }),
         defineField({
+            name:'publish',
+            type:'boolean',
+            title:'Publish',
+            initialValue:true,
+        }),
+        defineField({
             name: 'from',
             fieldset: 'duration',
             type: 'date'

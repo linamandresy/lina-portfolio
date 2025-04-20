@@ -6,16 +6,14 @@ import { client } from '@/sanity/client';
 import { urlFor } from '@/utils/ImageResolver';
 import { Project } from '@/sanity/types';
 
-const WORK_QUERY =  defineQuery( `*[_type == "project"]{...}`);
+const WORK_QUERY =  defineQuery( `*[_type == "project" && publish]{...}`);
 
 export default async function WorkSection() {
     const works = await client.fetch(WORK_QUERY);
-    // console.log(works);
     return (
         <section className={styles.section}>
             
                 <SectionTitle title="Works" />
-                
                 <div className={styles.workExperience}>
                     {works.map((work:Project,index:number) => {
                         const img:string = urlFor(work?.image)?.url() || '';
